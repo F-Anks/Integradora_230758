@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Mobile Platform Architecture",
+    "output": "mobile-platform-architecture.html",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "mobile-request",
+        "label": "Mobile request path",
+        "focus": ["mobile-app", "keycloak", "fastapi", "postgres", "mongodb"],
+        "note": "Follow sign-in, authenticated API calls, and persistence from the Flutter client."
+      },
+      {
+        "id": "maps",
+        "label": "Maps integration",
+        "focus": ["mobile-app", "maps-service"],
+        "note": "The mobile app requests map content directly from its external mapping provider."
+      },
+      {
+        "id": "local-development",
+        "label": "Local development",
+        "focus": ["docker-compose", "docker-engine", "fastapi", "postgres", "mongodb"],
+        "note": "Docker Compose coordinates the local application stack through Docker."
+      },
+      {
+        "id": "source-control",
+        "label": "Source control",
+        "focus": ["git", "github"],
+        "note": "Developers synchronize the source repository with GitHub through Git."
+      }
+    ],
+    "viewBox": [1280, 650]
+  },
+  "components": [
+    {
+      "id": "mobile-app",
+      "type": "frontend",
+      "label": "Flutter Mobile App",
+      "sublabel": "iOS / Android client",
+      "pos": [50, 285],
+      "size": [160, 72],
+      "tag": "Mobile client"
+    },
+    {
+      "id": "keycloak",
+      "type": "security",
+      "label": "Keycloak",
+      "sublabel": "Identity & access management",
+      "pos": [330, 120],
+      "size": [170, 72],
+      "tag": "Authentication layer"
+    },
+    {
+      "id": "fastapi",
+      "type": "backend",
+      "label": "FastAPI REST API",
+      "sublabel": "Application services",
+      "pos": [330, 290],
+      "size": [170, 72],
+      "tag": "API layer"
+    },
+    {
+      "id": "maps-service",
+      "type": "external",
+      "label": "Leaflet / Maps Service",
+      "sublabel": "Map tiles & geospatial content",
+      "pos": [330, 460],
+      "size": [170, 72],
+      "tag": "External service"
+    },
+    {
+      "id": "postgres",
+      "type": "database",
+      "label": "PostgreSQL",
+      "sublabel": "Relational data",
+      "pos": [610, 230],
+      "size": [160, 72],
+      "tag": "Data layer"
+    },
+    {
+      "id": "mongodb",
+      "type": "database",
+      "label": "MongoDB",
+      "sublabel": "Document data",
+      "pos": [610, 390],
+      "size": [160, 72],
+      "tag": "Data layer"
+    },
+    {
+      "id": "docker-compose",
+      "type": "cloud",
+      "label": "Docker Compose",
+      "sublabel": "Local stack orchestration",
+      "pos": [885, 150],
+      "size": [170, 72],
+      "tag": "Development infrastructure"
+    },
+    {
+      "id": "docker-engine",
+      "type": "cloud",
+      "label": "Docker",
+      "sublabel": "Local container runtime",
+      "pos": [885, 310],
+      "size": [170, 72],
+      "tag": "Development infrastructure"
+    },
+    {
+      "id": "git",
+      "type": "external",
+      "label": "Git",
+      "sublabel": "Local source control",
+      "pos": [885, 470],
+      "size": [140, 72],
+      "tag": "Source control"
+    },
+    {
+      "id": "github",
+      "type": "external",
+      "label": "GitHub",
+      "sublabel": "Remote repository hosting",
+      "pos": [1100, 470],
+      "size": [140, 72],
+      "tag": "Source control"
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "security-group",
+      "label": "Client Trust Boundary",
+      "wraps": ["mobile-app"]
+    },
+    {
+      "kind": "security-group",
+      "label": "Application Trust Boundary",
+      "wraps": ["keycloak", "fastapi", "postgres", "mongodb"]
+    },
+    {
+      "kind": "region",
+      "label": "External Services Boundary",
+      "wraps": ["maps-service"]
+    },
+    {
+      "kind": "region",
+      "label": "Local Development Boundary",
+      "wraps": ["docker-compose", "docker-engine"]
+    },
+    {
+      "kind": "region",
+      "label": "Source Control Boundary",
+      "wraps": ["git", "github"]
+    }
+  ],
+  "connections": [
+    {
+      "id": "mobile-authentication",
+      "from": "mobile-app",
+      "to": "keycloak",
+      "label": "OIDC authentication",
+      "variant": "security"
+    },
+    {
+      "id": "mobile-api",
+      "from": "mobile-app",
+      "to": "fastapi",
+      "label": "HTTPS REST requests",
+      "variant": "emphasis",
+      "labelAt": [150, 400]
+    },
+    {
+      "id": "api-token-validation",
+      "from": "fastapi",
+      "to": "keycloak",
+      "label": "validate access token",
+      "variant": "security"
+    },
+    {
+      "id": "api-postgres",
+      "from": "fastapi",
+      "to": "postgres",
+      "label": "SQL read / write"
+    },
+    {
+      "id": "api-mongodb",
+      "from": "fastapi",
+      "to": "mongodb",
+      "label": "document queries"
+    },
+    {
+      "id": "mobile-maps",
+      "from": "mobile-app",
+      "to": "maps-service",
+      "label": "map tiles & geospatial data",
+      "variant": "dashed"
+    },
+    {
+      "id": "compose-docker",
+      "from": "docker-compose",
+      "to": "docker-engine",
+      "label": "orchestrates containers",
+      "variant": "dashed",
+      "labelDy": 24
+    },
+    {
+      "id": "docker-stack",
+      "from": "docker-engine",
+      "to": "fastapi",
+      "label": "runs local stack",
+      "variant": "dashed"
+    },
+    {
+      "id": "git-github",
+      "from": "git",
+      "to": "github",
+      "label": "push / pull source",
+      "variant": "dashed",
+      "labelDy": 60
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Primary request flow",
+      "items": ["Flutter authenticates with Keycloak", "Authenticated REST calls reach FastAPI", "FastAPI persists relational and document data"]
+    },
+    {
+      "dot": "violet",
+      "title": "Trust boundaries",
+      "items": ["Client, application, external-service, development, and source-control scopes are separated", "Cross-boundary calls are explicitly labeled"]
+    },
+    {
+      "dot": "emerald",
+      "title": "Local delivery workflow",
+      "items": ["Docker Compose coordinates the Docker-based local stack", "Git synchronizes project sources with GitHub"]
+    }
+  ]
+}
