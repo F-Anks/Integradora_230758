@@ -1,6 +1,6 @@
 # Práctica 02: Boceto de Arquitectura con Archify
 
-👉 **[Ver el diagrama de arquitectura interactivo en vivo (GitHub Pages)](https://F-Anks.github.io/Integradora_230758/Practica02/mobile-platform-architecture.html)**
+ **[Ver el diagrama de arquitectura interactivo en vivo (GitHub Pages)](https://F-Anks.github.io/Integradora_230758/Practica02/mobile-platform-architecture.html)**
 
 ## Descripción General
 En esta práctica se llevó a cabo la instalación y configuración de **Archify** (un agente de modelado arquitectónico) mediante la interacción con **Codex de OpenAI**.

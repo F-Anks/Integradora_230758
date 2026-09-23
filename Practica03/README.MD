@@ -1,6 +1,6 @@
 # Práctica 03: Boceto de Modelo Canvas con Archify
 
-👉 **[Ver el diagrama de modelo canvas interactivo en vivo (GitHub Pages)](https://F-Anks.github.io/Integradora_230758/Practica03/spotify-business-model-canvas.html)**
+ **[Ver el diagrama de modelo canvas interactivo en vivo (GitHub Pages)](https://F-Anks.github.io/Integradora_230758/Practica03/spotify-business-model-canvas.html)**
 
 ## Descripción General
 En esta práctica se llevó a cabo la generación de un Business Model Canvas utilizando **Archify** (un agente de modelado arquitectónico) mediante la interacción con un prompt proporcionado. Se solicitó el modelo de negocio para una herramienta multiplataforma existente (Spotify).
