@@ -14,6 +14,7 @@ A continuación, se presentan imágenes documentando el proceso de la práctica:
 ![Evidencia 2](./images/image2.png)
 ![Evidencia 3](./images/image3.png)
 ![Evidencia 4](./images/image4.png)
+![Evidencia 5](./images/image6.png)
 
 ## Pruebas Visuales Automatizadas (Visual Checks)
 Archify generó además pruebas visuales de contención (*visual checks*) para asegurar que la vista del diagrama renderiza de manera correcta bajo distintos temas (claro/oscuro) y resoluciones:

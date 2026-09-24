@@ -4972,9 +4972,478 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       .source-evidence-beacon,
       svg [data-node-id], svg [data-edge-from], svg [data-detail], svg [data-detail-anchor], svg [data-legend-hit], svg { transition: none !important; }
     }
+
+    /* ===== CUSTOM: Google Fonts ===== */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+    /* ===== CUSTOM: Animated Background ===== */
+    .custom-bg-animation {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .custom-bg-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.08;
+      animation: customOrbFloat 20s ease-in-out infinite;
+    }
+
+    .custom-bg-orb:nth-child(1) {
+      width: 500px; height: 500px;
+      background: #1DB954;
+      top: -10%; left: -5%;
+    }
+
+    .custom-bg-orb:nth-child(2) {
+      width: 400px; height: 400px;
+      background: #8b5cf6;
+      top: 50%; right: -10%;
+      animation-delay: -7s;
+      animation-duration: 25s;
+    }
+
+    .custom-bg-orb:nth-child(3) {
+      width: 350px; height: 350px;
+      background: #06b6d4;
+      bottom: -5%; left: 30%;
+      animation-delay: -14s;
+      animation-duration: 22s;
+    }
+
+    @keyframes customOrbFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(40px, -25px) scale(1.08); }
+      50% { transform: translate(-15px, 30px) scale(0.95); }
+      75% { transform: translate(25px, 15px) scale(1.04); }
+    }
+
+    /* ===== CUSTOM: User Info Header ===== */
+    .custom-header {
+      position: relative;
+      z-index: 100;
+      padding: 18px 32px;
+      background: linear-gradient(135deg, rgba(29,185,84,0.07), rgba(139,92,246,0.05), transparent 70%);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      animation: customHeaderSlideIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    @keyframes customHeaderSlideIn {
+      from { opacity: 0; transform: translateY(-25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .custom-header-content {
+      max-width: 1500px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .custom-header-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .custom-spotify-logo {
+      width: 44px; height: 44px;
+      background: #1DB954;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: customLogoPulse 3s ease-in-out infinite;
+      box-shadow: 0 0 20px rgba(29,185,84,0.3);
+      flex-shrink: 0;
+    }
+
+    .custom-spotify-logo svg {
+      width: 26px; height: 26px;
+      fill: white;
+    }
+
+    @keyframes customLogoPulse {
+      0%, 100% { box-shadow: 0 0 20px rgba(29,185,84,0.3); }
+      50% { box-shadow: 0 0 35px rgba(29,185,84,0.5); }
+    }
+
+    .custom-header-title h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #1DB954, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin: 0;
+    }
+
+    .custom-header-title .custom-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      color: #6b6b80;
+      font-weight: 400;
+      margin-top: 1px;
+    }
+
+    .custom-header-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .custom-info-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 12px;
+      background: rgba(26,26,46,0.7);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #a0a0b8;
+      backdrop-filter: blur(10px);
+      animation: customBadgeFadeIn 0.6s ease-out both;
+      transition: all 0.2s ease;
+    }
+
+    .custom-info-badge:hover {
+      border-color: #1DB954;
+      color: #e8e8f0;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(29,185,84,0.15);
+    }
+
+    .custom-info-badge:nth-child(1) { animation-delay: 0.1s; }
+    .custom-info-badge:nth-child(2) { animation-delay: 0.2s; }
+    .custom-info-badge:nth-child(3) { animation-delay: 0.3s; }
+    .custom-info-badge:nth-child(4) { animation-delay: 0.4s; }
+    .custom-info-badge:nth-child(5) { animation-delay: 0.5s; }
+
+    @keyframes customBadgeFadeIn {
+      from { opacity: 0; transform: translateY(8px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* ===== CUSTOM: SVG Node Animations ===== */
+    svg [data-node-id] {
+      cursor: pointer;
+      transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                  filter 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    svg [data-node-id]:hover {
+      filter: brightness(1.3) drop-shadow(0 0 15px rgba(255,255,255,0.2));
+    }
+
+    /* Entrance animation for each node */
+    svg [data-node-id="partners"]      { animation: customNodeEntry 0.6s 0.1s cubic-bezier(0.22,1,0.36,1) both; }
+    svg [data-node-id="activities"]    { animation: customNodeEntry 0.6s 0.18s cubic-bezier(0.22,1,0.36,1) both; }
+    svg [data-node-id="resources"]     { animation: customNodeEntry 0.6s 0.26s cubic-bezier(0.22,1,0.36,1) both; }
+    svg [data-node-id="value"]         { animation: customNodeEntry 0.6s 0.34s cubic-bezier(0.22,1,0.36,1) both; }
+    svg [data-node-id="relationships"] { animation: customNodeEntry 0.6s 0.42s cubic-bezier(0.22,1,0.36,1) both; }
+    svg [data-node-id="channels"]      { animation: customNodeEntry 0.6s 0.50s cubic-bezier(0.22,1,0.36,1) both; }
+    svg [data-node-id="segments"]      { animation: customNodeEntry 0.6s 0.58s cubic-bezier(0.22,1,0.36,1) both; }
+    svg [data-node-id="costs"]         { animation: customNodeEntry 0.6s 0.66s cubic-bezier(0.22,1,0.36,1) both; }
+    svg [data-node-id="revenue"]       { animation: customNodeEntry 0.6s 0.74s cubic-bezier(0.22,1,0.36,1) both; }
+
+    @keyframes customNodeEntry {
+      from { opacity: 0; transform: translateY(15px) scale(0.92); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Edge path animation */
+    svg path[data-edge-from] {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: customEdgeDraw 1.5s 0.8s ease-out forwards;
+    }
+
+    @keyframes customEdgeDraw {
+      to { stroke-dashoffset: 0; }
+    }
+
+    /* Dimmed state when zoomed into a node */
+    .custom-node-dimmed {
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+
+    .custom-edge-dimmed {
+      opacity: 0 !important;
+    }
+
+    /* The SVG gets smooth viewBox transition via JS */
+    .diagram-container svg {
+      transition: none; /* viewBox animated via JS RAF */
+    }
+
+    /* ===== CUSTOM: Detail overlay that sits ON TOP of the diagram ===== */
+    .custom-expand-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 99999;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .custom-expand-overlay.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .custom-expand-content {
+      background: linear-gradient(135deg, rgba(10,10,15,0.95), rgba(18,18,26,0.97));
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 36px 40px;
+      max-width: 700px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+      font-family: 'Inter', -apple-system, sans-serif;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 60px rgba(29,185,84,0.08);
+      transform: scale(0.8);
+      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+      opacity: 0;
+    }
+
+    .custom-expand-overlay.visible .custom-expand-content {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    .custom-expand-close {
+      position: absolute;
+      top: 16px; right: 16px;
+      width: 34px; height: 34px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+      color: #a0a0b8;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .custom-expand-close:hover {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      transform: rotate(90deg);
+    }
+
+    .custom-expand-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 8px;
+    }
+
+    .custom-expand-icon {
+      width: 50px; height: 50px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .custom-expand-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #e8e8f0;
+    }
+
+    .custom-expand-sub {
+      font-size: 0.82rem;
+      color: #6b6b80;
+      margin-top: 2px;
+    }
+
+    .custom-expand-metric {
+      display: inline-flex;
+      padding: 5px 12px;
+      border-radius: 12px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      margin: 12px 0 20px;
+    }
+
+    .custom-expand-details h4 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #a0a0b8;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .custom-expand-details ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .custom-expand-details li {
+      font-size: 0.82rem;
+      color: #c8c8d8;
+      padding: 9px 0 9px 20px;
+      position: relative;
+      line-height: 1.6;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      animation: customExpandItemSlide 0.4s ease-out both;
+    }
+
+    .custom-expand-details li::before {
+      content: '\2192';
+      position: absolute;
+      left: 0;
+      font-size: 0.8rem;
+    }
+
+    .custom-expand-details li strong {
+      color: #e8e8f0;
+    }
+
+    .custom-expand-details li:last-child {
+      border-bottom: none;
+    }
+
+    @keyframes customExpandItemSlide {
+      from { opacity: 0; transform: translateX(-15px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .custom-expand-details li:nth-child(1) { animation-delay: 0.08s; }
+    .custom-expand-details li:nth-child(2) { animation-delay: 0.14s; }
+    .custom-expand-details li:nth-child(3) { animation-delay: 0.20s; }
+    .custom-expand-details li:nth-child(4) { animation-delay: 0.26s; }
+    .custom-expand-details li:nth-child(5) { animation-delay: 0.32s; }
+    .custom-expand-details li:nth-child(6) { animation-delay: 0.38s; }
+    .custom-expand-details li:nth-child(7) { animation-delay: 0.44s; }
+
+    /* ===== CUSTOM: Footer ===== */
+    .custom-footer {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 16px 20px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      font-family: 'Inter', sans-serif;
+      animation: customBadgeFadeIn 0.8s 1s both;
+    }
+
+    .custom-footer p {
+      font-size: 0.68rem;
+      color: #6b6b80;
+    }
+
+    /* ===== CUSTOM: Instruction bar ===== */
+    .custom-instruction {
+      position: relative;
+      z-index: 100;
+      text-align: center;
+      padding: 10px 16px;
+      background: linear-gradient(90deg, transparent, rgba(29,185,84,0.05), transparent);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-family: 'Inter', sans-serif;
+      animation: customBadgeFadeIn 0.6s 0.7s both;
+    }
+
+    .custom-instruction p {
+      font-size: 0.78rem;
+      color: #6b6b80;
+    }
+
+    .custom-instruction .hl {
+      color: #1DB954;
+      font-weight: 600;
+    }
+
+    .custom-instruction kbd {
+      display: inline-block;
+      padding: 1px 6px;
+      background: #1a1a2e;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 3px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: #a0a0b8;
+    }
+
+    @media (max-width: 768px) {
+      .custom-header-content { flex-direction: column; align-items: flex-start; }
+      .custom-expand-content { padding: 24px 20px; width: 95%; }
+    }
   </style>
 </head>
 <body>
+  <!-- CUSTOM: Animated Background -->
+  <div class="custom-bg-animation">
+    <div class="custom-bg-orb"></div>
+    <div class="custom-bg-orb"></div>
+    <div class="custom-bg-orb"></div>
+  </div>
+
+  <!-- CUSTOM: User Info Header -->
+  <header class="custom-header">
+    <div class="custom-header-content">
+      <div class="custom-header-left">
+        <div class="custom-spotify-logo">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+          </svg>
+        </div>
+        <div class="custom-header-title">
+          <h1>Business Model Canvas — Spotify</h1>
+          <div class="custom-subtitle">Diagrama interactivo del modelo de negocio</div>
+        </div>
+      </div>
+      <div class="custom-header-info">
+        <span class="custom-info-badge">👤 Francisco García García</span>
+        <span class="custom-info-badge">🎓 Ing. Desarrollo y Gestión de Software</span>
+        <span class="custom-info-badge">📚 Integradora</span>
+        <span class="custom-info-badge">📋 Práctica 03</span>
+        <span class="custom-info-badge">🆔 230758</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- CUSTOM: Instruction -->
+  <div class="custom-instruction">
+    <p><span class="hl">Click en cualquier bloque del diagrama</span> para expandirlo y ver el detalle · <kbd>ESC</kbd> para cerrar</p>
+  </div>
+
+
   <!-- Toolbar: theme, live visual style, trace motion, presentation stage, and export.
        Motion appears only for trace-enabled artifacts and has no shortcut;
        Keyboard: T toggles theme, S cycles style, F toggles the stage, E opens export. -->
@@ -15050,6 +15519,324 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         Archify.presentation.exit();
       }
     });
+  </script>
+
+  <!-- CUSTOM: Footer -->
+  <footer class="custom-footer">
+    <p>Práctica 03 — Integradora · Septiembre – Diciembre 2026 · Docente: M.T.I Marco A. Ramírez Hernández</p>
+  </footer>
+
+  <!-- CUSTOM: ViewBox Zoom Expand JavaScript -->
+  <script>
+  (function() {
+    'use strict';
+
+    var ORIGINAL_VB = { x: 0, y: 0, w: 1380, h: 980 };
+    var PADDING = 30;
+
+    var nodeRects = {
+      partners:      { x: 28,   y: 122, w: 235,  h: 585 },
+      activities:    { x: 286,  y: 122, w: 240,  h: 278 },
+      resources:     { x: 286,  y: 429, w: 240,  h: 278 },
+      value:         { x: 550,  y: 122, w: 275,  h: 585 },
+      relationships: { x: 849,  y: 122, w: 240,  h: 278 },
+      channels:      { x: 849,  y: 429, w: 240,  h: 278 },
+      segments:      { x: 1113, y: 122, w: 235,  h: 585 },
+      costs:         { x: 28,   y: 759, w: 635,  h: 150 },
+      revenue:       { x: 713,  y: 759, w: 635,  h: 150 }
+    };
+
+    var blockData = {
+      partners: {
+        icon: '🤝', title: 'Key Partners', subtitle: 'Socios Clave',
+        metric: '6 categorías de socios', color: '#06b6d4',
+        details: [
+          '<strong>Sellos Discográficos:</strong> Universal Music, Sony Music, Warner Music — proporcionan el catálogo de más de 100M de canciones mediante acuerdos de licencia.',
+          '<strong>Editores Musicales:</strong> Gestionan derechos de composición y letras, negocian regalías mecánicas y de ejecución.',
+          '<strong>Artistas Independientes:</strong> Suben contenido vía Spotify for Artists, contribuyen a la diversidad del catálogo.',
+          '<strong>Creadores de Podcasts:</strong> Generan contenido exclusivo y no-musical, expansión estratégica hacia audio diversificado.',
+          '<strong>Procesadores de Pago:</strong> Stripe y PayPal manejan suscripciones recurrentes en más de 180 mercados.',
+          '<strong>Proveedores Cloud:</strong> Google Cloud Platform proporciona infraestructura de streaming y computación global.',
+          '<strong>Fabricantes de Dispositivos:</strong> Samsung, Apple, Sonos, Alexa — integración nativa para mayor alcance.'
+        ]
+      },
+      activities: {
+        icon: '⚙️', title: 'Key Activities', subtitle: 'Actividades Clave',
+        metric: '5 actividades core', color: '#10b981',
+        details: [
+          '<strong>Desarrollo de Plataforma:</strong> Ingeniería continua de apps móviles, desktop y web player con actualizaciones semanales.',
+          '<strong>Licenciamiento de Contenido:</strong> Negociación de acuerdos con sellos y editores para el catálogo más completo del mercado.',
+          '<strong>Algoritmo de Recomendación:</strong> ML avanzado que potencia Discover Weekly, Daily Mix, Release Radar con más de 1 billón de playlists.',
+          '<strong>UX Design:</strong> Diseño centrado en el usuario con A/B testing continuo, mejorando engagement y retención.',
+          '<strong>Marketing y Adquisición:</strong> Campañas virales como Spotify Wrapped, partnerships con marcas y redes sociales.'
+        ]
+      },
+      resources: {
+        icon: '🗄️', title: 'Key Resources', subtitle: 'Recursos Clave',
+        metric: '100M+ tracks', color: '#3b82f6',
+        details: [
+          '<strong>Catálogo Musical:</strong> Más de 100 millones de canciones con metadatos enriquecidos (género, mood, tempo, instrumentación).',
+          '<strong>Algoritmos Propietarios:</strong> Collaborative filtering, NLP para podcasts, audio analysis con deep learning.',
+          '<strong>Equipo de Ingeniería:</strong> Miles de ingenieros en squads autónomos (modelo Spotify: Tribes, Chapters, Guilds).',
+          '<strong>Marca y Base de Usuarios:</strong> 600M+ usuarios registrados, reconocimiento de marca global.',
+          '<strong>Infraestructura de Datos:</strong> Petabytes de datos de comportamiento, streaming analytics en tiempo real.'
+        ]
+      },
+      value: {
+        icon: '💎', title: 'Value Propositions', subtitle: 'Propuesta de Valor',
+        metric: '6 ofertas diferenciadas', color: '#1DB954',
+        details: [
+          '<strong>Música On-Demand:</strong> Acceso instantáneo a más de 100 millones de canciones y 5 millones de podcasts.',
+          '<strong>Personalización con IA:</strong> Discover Weekly genera 30 canciones personalizadas cada lunes, Daily Mix ofrece hasta 6 playlists diarias.',
+          '<strong>Modelo Freemium:</strong> Tier gratuito con anuncios; Premium elimina ads, permite descargas offline y audio HiFi.',
+          '<strong>Multiplataforma:</strong> Experiencia consistente en iOS, Android, Windows, macOS, Linux, Smart TVs y consolas.',
+          '<strong>Podcasts & Audiobooks:</strong> Hub central de audio con música, podcasts exclusivos y audiolibros.',
+          '<strong>Social Features:</strong> Playlists colaborativas, ver qué escuchan amigos, Spotify Wrapped anual.'
+        ]
+      },
+      relationships: {
+        icon: '💜', title: 'Customer Relationships', subtitle: 'Relación con Clientes',
+        metric: 'Conversión + Retención', color: '#8b5cf6',
+        details: [
+          '<strong>Funnel Freemium:</strong> Usuarios gratuitos convierten a Premium con trials de 30 días y ofertas especiales.',
+          '<strong>Personalización Continua:</strong> El algoritmo aprende de cada interacción, creando un lock-in por datos acumulados.',
+          '<strong>Spotify Wrapped:</strong> Campaña anual que genera viralidad orgánica, compartida por millones en redes.',
+          '<strong>Soporte al Cliente:</strong> Help center, chatbot, soporte por redes sociales y comunidad de ayuda.',
+          '<strong>Conexión Artista-Fan:</strong> Canvas (videos en loop), preventas de conciertos y merch integrado.'
+        ]
+      },
+      channels: {
+        icon: '📡', title: 'Channels', subtitle: 'Canales',
+        metric: '5 superficies de alcance', color: '#f97316',
+        details: [
+          '<strong>Apps Móviles:</strong> iOS y Android con experiencia nativa, offline mode, widgets y notificaciones inteligentes.',
+          '<strong>Desktop App:</strong> Aplicación Electron para Windows, macOS y Linux con funciones completas.',
+          '<strong>Web Player:</strong> Acceso directo desde el navegador sin instalación.',
+          '<strong>Smart Speakers & IoT:</strong> Alexa, Google Home, Sonos, smart TVs — control por voz y multi-room.',
+          '<strong>Marketing en Redes:</strong> TikTok, Instagram, Twitter/X; campañas virales y brand partnerships.'
+        ]
+      },
+      segments: {
+        icon: '👥', title: 'Customer Segments', subtitle: 'Segmentos de Clientes',
+        metric: '600M+ usuarios', color: '#f43f5e',
+        details: [
+          '<strong>Usuarios Gratuitos:</strong> Acceso con anuncios, sin descarga offline — funnel de entrada al ecosistema.',
+          '<strong>Premium Individual:</strong> Sin anuncios, descarga offline, audio de alta calidad.',
+          '<strong>Premium Familia:</strong> Hasta 6 cuentas bajo un mismo plan con controles parentales.',
+          '<strong>Premium Estudiante:</strong> Descuento del 50% con verificación universitaria.',
+          '<strong>Artistas & Creadores:</strong> Dashboard Spotify for Artists, analytics y herramientas de promoción.',
+          '<strong>Anunciantes:</strong> Spotify Ad Studio para self-serve ads, podcast advertising y sponsorships.'
+        ]
+      },
+      costs: {
+        icon: '💰', title: 'Cost Structure', subtitle: 'Estructura de Costos',
+        metric: 'Regalías = 70% de ingresos', color: '#f59e0b',
+        details: [
+          '<strong>Regalías Musicales (~70%):</strong> Mayor costo operativo — pagos a sellos, publishers y artistas por reproducción.',
+          '<strong>I+D:</strong> Inversión en ML/AI, mejoras de UX, nuevos features como DJ AI, audio spatial.',
+          '<strong>Infraestructura Cloud:</strong> Google Cloud Platform para CDN, procesamiento de datos y almacenamiento global.',
+          '<strong>Marketing & Adquisición:</strong> Campañas de marca, descuentos de trial, partnerships y eventos.',
+          '<strong>Contenido Original:</strong> Inversión en podcasts exclusivos, Spotify Originals y acuerdos premium.'
+        ]
+      },
+      revenue: {
+        icon: '📈', title: 'Revenue Streams', subtitle: 'Fuentes de Ingresos',
+        metric: 'Suscripciones + Publicidad', color: '#ec4899',
+        details: [
+          '<strong>Suscripciones Premium (~87%):</strong> Principal fuente. Planes Individual, Familia, Duo y Estudiante con pricing regional.',
+          '<strong>Publicidad (~13%):</strong> Audio ads, display ads, video takeovers y sponsored playlists en tier gratuito.',
+          '<strong>Spotify for Artists:</strong> Herramientas de promoción, analytics avanzados y marketplace.',
+          '<strong>Podcast Advertising:</strong> Inserción dinámica de anuncios con targeting por audiencia.',
+          '<strong>Spotify Ad Studio:</strong> Plataforma self-serve para crear y lanzar campañas de audio.'
+        ]
+      }
+    };
+
+    var svg = document.querySelector('.diagram-container svg');
+    var diagramContainer = document.querySelector('.diagram-container');
+    if (!svg || !diagramContainer) return;
+
+    var currentNodeId = null;
+    var animationId = null;
+    var expandOverlay = null;
+
+    // Create the overlay for detail content
+    (function createOverlay() {
+      expandOverlay = document.createElement('div');
+      expandOverlay.className = 'custom-expand-overlay';
+      expandOverlay.innerHTML = '<div class="custom-expand-content">' +
+        '<button class="custom-expand-close" id="customExpandClose" aria-label="Cerrar">\u2715</button>' +
+        '<div id="customExpandInner"></div></div>';
+      document.body.appendChild(expandOverlay);
+
+      expandOverlay.querySelector('#customExpandClose').addEventListener('click', function(e) {
+        e.stopPropagation();
+        zoomOut();
+      });
+
+      expandOverlay.addEventListener('click', function(e) {
+        if (e.target === expandOverlay) zoomOut();
+      });
+    })();
+
+    // Smooth viewBox animation with requestAnimationFrame
+    function animateViewBox(from, to, duration, onDone) {
+      if (animationId) cancelAnimationFrame(animationId);
+      var start = performance.now();
+
+      function step(now) {
+        var elapsed = now - start;
+        var progress = Math.min(elapsed / duration, 1);
+        var ease = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+
+        var cx = from.x + (to.x - from.x) * ease;
+        var cy = from.y + (to.y - from.y) * ease;
+        var cw = from.w + (to.w - from.w) * ease;
+        var ch = from.h + (to.h - from.h) * ease;
+
+        svg.setAttribute('viewBox', cx + ' ' + cy + ' ' + cw + ' ' + ch);
+
+        if (progress < 1) {
+          animationId = requestAnimationFrame(step);
+        } else {
+          animationId = null;
+          if (onDone) onDone();
+        }
+      }
+      animationId = requestAnimationFrame(step);
+    }
+
+    function getCurrentVB() {
+      var parts = svg.getAttribute('viewBox').split(/[\s,]+/).map(Number);
+      return { x: parts[0], y: parts[1], w: parts[2], h: parts[3] };
+    }
+
+    function zoomIn(nodeId) {
+      var rect = nodeRects[nodeId];
+      var data = blockData[nodeId];
+      if (!rect || !data) return;
+
+      currentNodeId = nodeId;
+
+      // Calcular el zoom para que se adapte a CUALQUIER pantalla sin expandirse por todo el viewport
+      var cw = diagramContainer.clientWidth || window.innerWidth;
+      var ch = diagramContainer.clientHeight || window.innerHeight;
+      var screenAspectRatio = cw / ch;
+      var nodeAspectRatio = rect.w / rect.h;
+      
+      var scale = 1.35; // Deja un margen agradable (~25% de la pantalla)
+      var targetW, targetH;
+
+      if (nodeAspectRatio > screenAspectRatio) {
+        targetW = rect.w * scale;
+        targetH = targetW / screenAspectRatio;
+      } else {
+        targetH = rect.h * scale;
+        targetW = targetH * screenAspectRatio;
+      }
+
+      var target = {
+        x: rect.x - (targetW - rect.w) / 2,
+        y: rect.y - (targetH - rect.h) / 2,
+        w: targetW,
+        h: targetH
+      };
+
+      // Dim all other nodes and edges
+      var allNodes = document.querySelectorAll('svg [data-node-id]');
+      for (var j = 0; j < allNodes.length; j++) {
+        if (allNodes[j].getAttribute('data-node-id') !== nodeId) {
+          allNodes[j].classList.add('custom-node-dimmed');
+        }
+      }
+      var allEdges = document.querySelectorAll('svg path[data-edge-from], svg g[data-edge-from]');
+      for (var k = 0; k < allEdges.length; k++) {
+        allEdges[k].classList.add('custom-edge-dimmed');
+      }
+      var legend = svg.querySelector('[data-legend]');
+      if (legend) legend.classList.add('custom-node-dimmed');
+
+      // Animate viewBox zoom
+      animateViewBox(getCurrentVB(), target, 700, function() {
+        showDetailOverlay(data);
+      });
+    }
+
+    function zoomOut() {
+      if (!currentNodeId) return;
+      currentNodeId = null;
+
+      expandOverlay.classList.remove('visible');
+
+      // Restore all nodes
+      var allNodes = document.querySelectorAll('svg [data-node-id]');
+      for (var j = 0; j < allNodes.length; j++) {
+        allNodes[j].classList.remove('custom-node-dimmed');
+      }
+      var allEdges = document.querySelectorAll('svg path[data-edge-from], svg g[data-edge-from]');
+      for (var k = 0; k < allEdges.length; k++) {
+        allEdges[k].classList.remove('custom-edge-dimmed');
+      }
+      var legend = svg.querySelector('[data-legend]');
+      if (legend) legend.classList.remove('custom-node-dimmed');
+
+      animateViewBox(getCurrentVB(), ORIGINAL_VB, 600);
+    }
+
+    function showDetailOverlay(data) {
+      var inner = document.getElementById('customExpandInner');
+      if (!inner) return;
+      var html = '<div class="custom-expand-header">' +
+        '<div class="custom-expand-icon" style="background:' + data.color + '22;color:' + data.color + '">' + data.icon + '</div>' +
+        '<div><div class="custom-expand-title">' + data.title + '</div>' +
+        '<div class="custom-expand-sub">' + data.subtitle + '</div></div></div>' +
+        '<div class="custom-expand-metric" style="background:' + data.color + '1a;color:' + data.color + '">\ud83d\udcca ' + data.metric + '</div>' +
+        '<div class="custom-expand-details"><h4>Detalle Completo</h4><ul>';
+      for (var i = 0; i < data.details.length; i++) {
+        html += '<li style="animation-delay:' + (i * 0.07) + 's">' + data.details[i] + '</li>';
+      }
+      html += '</ul></div>';
+      inner.innerHTML = html;
+
+      // Set arrow color
+      var styleTag = document.getElementById('custom-arrow-color');
+      if (!styleTag) {
+        styleTag = document.createElement('style');
+        styleTag.id = 'custom-arrow-color';
+        document.head.appendChild(styleTag);
+      }
+      styleTag.textContent = '.custom-expand-details li::before { color: ' + data.color + ' !important; }';
+
+      expandOverlay.classList.add('visible');
+    }
+
+    // Click handlers on SVG nodes
+    var svgNodes = document.querySelectorAll('svg [data-node-id]');
+    for (var i = 0; i < svgNodes.length; i++) {
+      svgNodes[i].addEventListener('click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        var nodeId = this.getAttribute('data-node-id');
+        if (currentNodeId === nodeId) {
+          zoomOut();
+        } else if (currentNodeId) {
+          zoomOut();
+          setTimeout(function() { zoomIn(nodeId); }, 650);
+        } else {
+          zoomIn(nodeId);
+        }
+      });
+    }
+
+    // ESC to zoom out
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && currentNodeId) {
+        e.preventDefault();
+        e.stopPropagation();
+        zoomOut();
+      }
+    }, true);
+  })();
   </script>
 </body>
 </html>
